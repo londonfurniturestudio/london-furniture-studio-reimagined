@@ -3,9 +3,8 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { Testimonials } from "@/components/site/Testimonials";
 import { ProjectCarousel } from "@/components/site/ProjectCarousel";
 import { HeroMedia } from "@/components/site/HeroMedia";
+import { InstagramPreview } from "@/components/site/InstagramPreview";
 import heroStill from "@/assets/hero-still.jpg";
-
-import featureImg from "@/assets/feature-kitchen.jpg";
 import tileCommercial from "@/assets/tile-commercial.jpg";
 import tileArchitects from "@/assets/tile-architects.jpg";
 import tileResidential from "@/assets/tile-residential.jpg";
@@ -36,30 +35,18 @@ export const Route = createFileRoute("/")({
 function Home() {
   return (
     <SiteLayout>
-      {/* HERO */}
       <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden">
         <HeroMedia video alt="Bespoke walnut library and study by London Furniture Studio" />
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(20,42,40,0.45) 0%, rgba(20,42,40,0.2) 40%, rgba(20,42,40,0.7) 100%)" }} />
         <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col items-center justify-center px-6 text-center md:px-10">
-          <p
-            className="animate-fade-up text-[0.8rem] uppercase tracking-[0.42em] md:text-[0.95rem]"
-            style={{ color: "var(--color-brass)" }}
-          >
+          <p className="animate-fade-up text-[0.8rem] uppercase tracking-[0.42em] md:text-[0.95rem]" style={{ color: "var(--color-brass)" }}>
             London Furniture Studio
           </p>
-          <h1
-            className="mt-6 max-w-4xl font-display text-[2.2rem] leading-[1.1] md:text-[4rem] animate-fade-up"
-            style={{ color: "var(--color-brass-soft, #d9b483)", animationDelay: "120ms" }}
-          >
+          <h1 className="mt-6 max-w-4xl animate-fade-up font-display text-[2.2rem] leading-[1.1] md:text-[4rem]" style={{ color: "var(--color-brass-soft, #d9b483)", animationDelay: "120ms" }}>
             Cabinetry <em className="italic">crafted</em> for the finest interiors.
           </h1>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4 animate-fade-up" style={{ animationDelay: "260ms" }}>
-            <a
-              href="https://www.instagram.com/londonfurniturestudio/"
-              target="_blank"
-              rel="noreferrer"
-              className="btn-brand-solid btn-brand-solid-hover"
-            >
+            <a href="https://www.instagram.com/londonfurniturestudio/" target="_blank" rel="noreferrer" className="btn-brand-solid btn-brand-solid-hover">
               View Our Work
             </a>
             <Link to="/contact" className="btn-brand btn-brand-hover text-ivory">Start a Project</Link>
@@ -71,8 +58,7 @@ function Home() {
         </div>
       </section>
 
-      {/* BLURB + CTA */}
-      <section className="mx-auto max-w-[1100px] px-6 pt-28 pb-16 text-center md:pt-36 md:pb-20 md:px-10">
+      <section className="mx-auto max-w-[1100px] px-6 pt-28 pb-16 text-center md:px-10 md:pt-36 md:pb-20">
         <div className="hairline hairline-before hairline-after mx-auto">
           <span className="eyebrow text-brass">The Studio</span>
         </div>
@@ -92,24 +78,27 @@ function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
       <Testimonials />
 
-      {/* FEATURE PHOTO */}
-      <section className="mx-auto max-w-[1400px] px-6 pt-16 pb-24 md:px-10 md:pt-20 md:pb-32">
-        <figure className="relative overflow-hidden">
-          <img
-            src={featureImg}
-            alt="Bespoke walnut kitchen interior"
-            loading="lazy"
-            width={1600}
-            height={1000}
-            className="h-[520px] w-full object-cover md:h-[680px]"
-          />
-        </figure>
+      <section style={{ backgroundColor: "var(--color-secondary)" }}>
+        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-10 md:py-36">
+          <div className="mb-14 flex flex-col items-center text-center">
+            <div className="hairline hairline-before hairline-after">
+              <span className="eyebrow text-brass">Selected Work</span>
+            </div>
+            <h2 className="mt-6 font-display text-[2rem] text-forest md:text-[3rem]">Recent Projects</h2>
+          </div>
+
+          <ProjectCarousel />
+
+          <div className="mt-14 text-center">
+            <Link to="/projects" className="btn-brand btn-brand-hover">See More</Link>
+          </div>
+        </div>
       </section>
 
-      {/* WHO WE WORK WITH */}
+      <InstagramPreview />
+
       <section className="mx-auto max-w-[1400px] px-6 pb-28 md:px-10 md:pb-36">
         <div className="mb-14 text-center">
           <div className="hairline hairline-before hairline-after mx-auto">
@@ -140,24 +129,6 @@ function Home() {
 
         <div className="mt-14 text-center">
           <Link to="/what-we-do" className="btn-brand btn-brand-hover">How We Work</Link>
-        </div>
-      </section>
-
-      {/* RECENT PROJECTS */}
-      <section style={{ backgroundColor: "var(--color-secondary)" }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-10 md:py-36">
-          <div className="mb-14 flex flex-col items-center text-center">
-            <div className="hairline hairline-before hairline-after">
-              <span className="eyebrow text-brass">Selected Work</span>
-            </div>
-            <h2 className="mt-6 font-display text-[2rem] text-forest md:text-[3rem]">Recent Projects</h2>
-          </div>
-
-          <ProjectCarousel />
-
-          <div className="mt-14 text-center">
-            <Link to="/projects" className="btn-brand btn-brand-hover">See More</Link>
-          </div>
         </div>
       </section>
     </SiteLayout>
