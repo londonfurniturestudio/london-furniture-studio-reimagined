@@ -7,7 +7,7 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10">
         <div className="grid gap-14 md:grid-cols-4">
           <div className="md:col-span-1">
-            <img src={logoDark} alt="London Furniture Studio" className="block h-auto w-[260px] max-w-full" />
+            <img src={logoMark} alt="London Furniture Studio" className="block h-auto w-[520px] max-w-full" />
             <div className="mt-6 h-px w-14 bg-brass" />
             <p className="mt-6 max-w-[240px] text-sm leading-relaxed text-ivory/70">Bespoke joinery for London's finest homes and developments.</p>
           </div>
