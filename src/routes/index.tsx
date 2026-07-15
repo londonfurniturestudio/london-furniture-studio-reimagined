@@ -92,7 +92,7 @@ function Home() {
       <Testimonials />
 
       {/* FEATURE PHOTO */}
-      <section className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
+      <section className="mx-auto max-w-[1400px] px-6 pt-16 pb-24 md:px-10 md:pt-20 md:pb-32">
         <figure className="relative overflow-hidden">
           <img
             src={featureImg}
