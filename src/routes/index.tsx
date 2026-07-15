@@ -80,26 +80,7 @@ function Home() {
 
       <Testimonials />
 
-      <section style={{ backgroundColor: "var(--color-secondary)" }}>
-        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-10 md:py-36">
-          <div className="mb-14 flex flex-col items-center text-center">
-            <div className="hairline hairline-before hairline-after">
-              <span className="eyebrow text-brass">Selected Work</span>
-            </div>
-            <h2 className="mt-6 font-display text-[2rem] text-forest md:text-[3rem]">Recent Projects</h2>
-          </div>
-
-          <ProjectCarousel />
-
-          <div className="mt-14 text-center">
-            <Link to="/projects" className="btn-brand btn-brand-hover">See More</Link>
-          </div>
-        </div>
-      </section>
-
-      <InstagramPreview />
-
-      <section className="mx-auto max-w-[1400px] px-6 pb-28 md:px-10 md:pb-36">
+      <section className="mx-auto max-w-[1400px] px-6 pt-28 pb-16 md:px-10 md:pt-36 md:pb-20">
         <div className="mb-14 text-center">
           <div className="hairline hairline-before hairline-after mx-auto">
             <span className="eyebrow text-brass">Collaborations</span>
@@ -131,6 +112,24 @@ function Home() {
           <Link to="/what-we-do" className="btn-brand btn-brand-hover">How We Work</Link>
         </div>
       </section>
+
+      <section style={{ backgroundColor: "var(--color-secondary)" }}>
+        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-10 md:py-36">
+          <div className="mb-14 flex flex-col items-center text-center">
+            <div className="hairline hairline-before hairline-after">
+              <span className="eyebrow text-brass">Selected Work</span>
+            </div>
+            <h2 className="mt-6 font-display text-[2rem] text-forest md:text-[3rem]">Recent Projects</h2>
+          </div>
+
+          <ProjectCarousel />
+
+          <div className="mt-14 text-center">
+            <Link to="/projects" className="btn-brand btn-brand-hover">See More</Link>
+          </div>
+        </div>
+      </section>
+
     </SiteLayout>
   );
 }
