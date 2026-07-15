@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logoDark from "@/assets/logo-dark.jpg";
+import logoMark from "@/assets/logo-mark.png";
 
 export function Footer() {
   return (
