@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import heroImg from "@/assets/hero-office.jpg.asset.json";
-import maxCam from "@/assets/max-cam.jpg.asset.json";
+import heroImg from "@/assets/hero-still.jpg";
+import maxCam from "@/assets/max-cam.jpg";
 
 export const Route = createFileRoute("/who-we-are")({
   head: () => ({
@@ -10,7 +10,7 @@ export const Route = createFileRoute("/who-we-are")({
       { name: "description", content: "Meet the team behind London Furniture Studio — a Berkshire workshop of makers, designers and finishers dedicated to bespoke joinery." },
       { property: "og:title", content: "Who We Are — London Furniture Studio" },
       { property: "og:description", content: "A workshop of makers, designers and finishers." },
-      { property: "og:image", content: heroImg.url },
+      { property: "og:image", content: heroImg },
     ],
   }),
   component: WhoWeAre,
