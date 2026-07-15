@@ -20,7 +20,7 @@ function WhoWeAre() {
   return (
     <SiteLayout>
       <section className="relative h-[62svh] min-h-[440px] w-full overflow-hidden">
-        <img src={heroImg.url} alt="LFS workshop" className="absolute inset-0 h-full w-full object-cover" />
+        <img src={heroImg} alt="LFS workshop" className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(20,42,40,0.5), rgba(20,42,40,0.75))" }} />
         <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col items-center justify-center px-6 pt-16 text-center text-ivory md:px-10">
           <p className="eyebrow text-brass">The Studio</p>
@@ -42,7 +42,7 @@ function WhoWeAre() {
 
       <section className="mx-auto max-w-[1100px] px-6 pb-24 md:px-10 md:pb-32">
         <figure>
-          <img src={maxCam.url} alt="Max and Cam, founders of London Furniture Studio" loading="lazy" className="h-[520px] w-full object-cover md:h-[720px]" />
+          <img src={maxCam} alt="Max and Cam, founders of London Furniture Studio" loading="lazy" className="h-[520px] w-full object-cover md:h-[720px]" />
           <figcaption className="mt-4 text-center text-[0.68rem] uppercase tracking-[0.28em] text-brass">Max &amp; Cam — Founders</figcaption>
         </figure>
       </section>
