@@ -3,6 +3,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { Testimonials } from "@/components/site/Testimonials";
 import { ProjectCarousel } from "@/components/site/ProjectCarousel";
 import heroImg from "@/assets/hero-office.jpg.asset.json";
+import logoLight from "@/assets/logo-light.png.asset.json";
 import featureImg from "@/assets/feature-kitchen.jpg";
 import tileCommercial from "@/assets/tile-commercial.jpg";
 import tileArchitects from "@/assets/tile-architects.jpg";
