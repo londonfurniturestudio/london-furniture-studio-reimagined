@@ -1,5 +1,4 @@
 import { Link } from "@tanstack/react-router";
-import logoLight from "@/assets/logo-dark.jpg.asset.json";
 
 export function Footer() {
   return (
@@ -7,7 +6,10 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10">
         <div className="grid gap-14 md:grid-cols-4">
           <div className="md:col-span-1">
-            <img src={logoLight.url} alt="London Furniture Studio" className="h-24 w-auto" />
+            <div className="font-display text-4xl text-ivory tracking-[0.14em]">LFS</div>
+            <div className="mt-3 text-[0.62rem] uppercase tracking-[0.32em] text-brass">London Furniture Studio</div>
+            <div className="mt-6 h-px w-14 bg-brass" />
+            <p className="mt-6 text-sm leading-relaxed text-ivory/70 max-w-[240px]">Bespoke joinery for London's finest homes and developments.</p>
           </div>
 
           <div>
