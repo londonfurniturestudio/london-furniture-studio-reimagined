@@ -1,31 +1,18 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import projMedia from "@/assets/proj-media.jpg";
-import projKitchen from "@/assets/proj-kitchen.jpg";
-import projWardrobe from "@/assets/proj-wardrobe.jpg";
-import projLibrary from "@/assets/proj-library.jpg";
-import projShelving from "@/assets/proj-shelving.jpg";
+import { projectItems } from "@/components/site/project-data";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
       { title: "Projects — London Furniture Studio" },
-      { name: "description", content: "Selected bespoke joinery projects from London Furniture Studio across Chelsea, Marylebone, Belgravia and beyond." },
+      { name: "description", content: "Selected bespoke joinery projects from London Furniture Studio across London, Fulham, Kensington and St Georges Hill." },
       { property: "og:title", content: "Projects — London Furniture Studio" },
       { property: "og:description", content: "Selected bespoke joinery from LFS." },
-      { property: "og:image", content: projLibrary },
     ],
   }),
   component: Projects,
 });
-
-const projects = [
-  { img: projLibrary, title: "Walnut Library & Study", cat: "Residential · Library", size: "tall" },
-  { img: projKitchen, title: "Kensington Kitchen", cat: "Residential · Kitchen", size: "wide" },
-  { img: projWardrobe, title: "Bespoke Dressing Room", cat: "Residential · Wardrobe", size: "tall" },
-  { img: projShelving, title: "Illuminated Oak Shelving", cat: "Residential · Living", size: "wide" },
-  { img: projMedia, title: "Marquetry Media Unit", cat: "Residential · Media", size: "tall" },
-];
 
 function Projects() {
   return (
@@ -40,13 +27,14 @@ function Projects() {
 
       <section className="mx-auto max-w-[1400px] px-6 pb-28 md:px-10 md:pb-36">
         <div className="grid gap-4 md:grid-cols-2">
-          {projects.map((p, i) => (
-            <figure key={i} className={`group relative overflow-hidden ${p.size === "tall" ? "aspect-[4/5]" : "aspect-[4/3]"}`}>
-              <img src={p.img} alt={p.title} loading="lazy" width={1200} height={1500} className="h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-[1.05]" />
+          {projectItems.map((project, i) => (
+            <figure key={`${project.title}-${i}`} className={`group relative overflow-hidden ${project.size === "tall" ? "aspect-[4/5]" : "aspect-[4/3]"}`}>
+              <img src={project.src} alt={project.title} loading="lazy" width={1200} height={1500} className="h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-[1.05]" />
               <div className="absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: "linear-gradient(180deg, transparent 30%, rgba(20,42,40,0.85))" }} />
               <figcaption className="absolute inset-x-0 bottom-0 translate-y-3 p-7 opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
-                <p className="text-[0.68rem] uppercase tracking-[0.28em] text-brass">{p.cat}</p>
-                <h3 className="mt-1 font-display text-2xl text-ivory">{p.title}</h3>
+                <p className="text-[0.68rem] uppercase tracking-[0.28em] text-brass">{project.meta}</p>
+                <h3 className="mt-1 font-display text-2xl text-ivory">{project.title}</h3>
+                {project.location ? <p className="mt-2 text-sm text-ivory/80">{project.location}</p> : null}
               </figcaption>
             </figure>
           ))}

@@ -1,11 +1,28 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useServerFn } from "@tanstack/react-start";
+import { useState } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
+import { submitContactEnquiry } from "@/lib/contact.functions";
+
+type FormState = {
+  name: string;
+  email: string;
+  telephone: string;
+  message: string;
+};
+
+const initialFormState: FormState = {
+  name: "",
+  email: "",
+  telephone: "",
+  message: "",
+};
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — London Furniture Studio" },
-      { name: "description", content: "Enquire about a bespoke joinery commission with London Furniture Studio — Phoenix Way, Hurst, Reading." },
+      { name: "description", content: "Enquire about a bespoke joinery commission with London Furniture Studio in Hurst, Reading." },
       { property: "og:title", content: "Contact — London Furniture Studio" },
       { property: "og:description", content: "Enquire about a bespoke commission." },
     ],
@@ -14,6 +31,15 @@ export const Route = createFileRoute("/contact")({
 });
 
 function Contact() {
+  const sendEnquiry = useServerFn(submitContactEnquiry);
+  const [form, setForm] = useState<FormState>(initialFormState);
+  const [status, setStatus] = useState<string>("");
+  const [submitting, setSubmitting] = useState(false);
+
+  const updateField = (field: keyof FormState, value: string) => {
+    setForm((prev) => ({ ...prev, [field]: value }));
+  };
+
   return (
     <SiteLayout>
       <section className="pt-32 pb-14 md:pt-40">
@@ -28,43 +54,64 @@ function Contact() {
         <div className="grid gap-16 md:grid-cols-2">
           <div>
             <p className="eyebrow text-brass">Studio</p>
-            <p className="mt-4 font-display text-2xl text-forest leading-tight">Phoenix Way<br />Hurst, Reading<br />United Kingdom</p>
+            <p className="mt-4 font-display text-2xl leading-tight text-forest">Unit 28, Phoenix Park<br />Nelson&apos;s Lane, Hurst<br />Reading RG10 0RR<br />United Kingdom</p>
 
             <div className="mt-10 space-y-4">
               <div>
                 <p className="eyebrow text-brass">Email</p>
-                <a href="mailto:studio@londonfurniturestudio.com" className="mt-2 block font-display text-xl text-forest hover:text-brass transition">studio@londonfurniturestudio.com</a>
+                <a href="mailto:info@londonfurniturestudio.com" className="mt-2 block font-display text-xl text-forest transition hover:text-brass">info@londonfurniturestudio.com</a>
               </div>
               <div>
                 <p className="eyebrow text-brass">Telephone</p>
-                <a href="tel:+441189000000" className="mt-2 block font-display text-xl text-forest hover:text-brass transition">+44 (0) 118 900 0000</a>
+                <a href="tel:+442080505843" className="mt-2 block font-display text-xl text-forest transition hover:text-brass">020 8050 5843</a>
               </div>
               <div>
                 <p className="eyebrow text-brass">Instagram</p>
-                <a href="https://www.instagram.com/londonfurniturestudio/" target="_blank" rel="noreferrer" className="mt-2 block font-display text-xl text-forest hover:text-brass transition">@londonfurniturestudio</a>
+                <a href="https://www.instagram.com/londonfurniturestudio/" target="_blank" rel="noreferrer" className="mt-2 block font-display text-xl text-forest transition hover:text-brass">@londonfurniturestudio</a>
               </div>
             </div>
           </div>
 
-          <form className="flex flex-col gap-5" onSubmit={(e) => { e.preventDefault(); alert("Thank you — we'll be in touch shortly."); }}>
+          <form
+            className="flex flex-col gap-5"
+            onSubmit={async (e) => {
+              e.preventDefault();
+              setSubmitting(true);
+              setStatus("");
+              try {
+                const result = await sendEnquiry({ data: form });
+                setStatus(result.message);
+                if (result.ok) {
+                  setForm(initialFormState);
+                }
+              } catch {
+                setStatus("Something went wrong while sending your enquiry. Please try again.");
+              } finally {
+                setSubmitting(false);
+              }
+            }}
+          >
             <label className="flex flex-col gap-2">
               <span className="eyebrow text-forest">Name</span>
-              <input required className="border-b border-forest/30 bg-transparent py-2 outline-none focus:border-brass" />
+              <input required value={form.name} onChange={(e) => updateField("name", e.target.value)} className="border-b border-forest/30 bg-transparent py-2 outline-none focus:border-brass" />
             </label>
             <label className="flex flex-col gap-2">
               <span className="eyebrow text-forest">Email</span>
-              <input required type="email" className="border-b border-forest/30 bg-transparent py-2 outline-none focus:border-brass" />
+              <input required type="email" value={form.email} onChange={(e) => updateField("email", e.target.value)} className="border-b border-forest/30 bg-transparent py-2 outline-none focus:border-brass" />
             </label>
             <label className="flex flex-col gap-2">
               <span className="eyebrow text-forest">Telephone</span>
-              <input className="border-b border-forest/30 bg-transparent py-2 outline-none focus:border-brass" />
+              <input value={form.telephone} onChange={(e) => updateField("telephone", e.target.value)} className="border-b border-forest/30 bg-transparent py-2 outline-none focus:border-brass" />
             </label>
             <label className="flex flex-col gap-2">
               <span className="eyebrow text-forest">Tell us about your project</span>
-              <textarea rows={5} className="border-b border-forest/30 bg-transparent py-2 outline-none focus:border-brass resize-none" />
+              <textarea required rows={5} value={form.message} onChange={(e) => updateField("message", e.target.value)} className="resize-none border-b border-forest/30 bg-transparent py-2 outline-none focus:border-brass" />
             </label>
+            {status ? <p className="text-sm text-muted-foreground">{status}</p> : null}
             <div className="pt-4">
-              <button type="submit" className="btn-brand btn-brand-hover">Send Enquiry</button>
+              <button type="submit" disabled={submitting} className="btn-brand btn-brand-hover disabled:opacity-60">
+                {submitting ? "Sending..." : "Send Enquiry"}
+              </button>
             </div>
           </form>
         </div>

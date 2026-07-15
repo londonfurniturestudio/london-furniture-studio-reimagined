@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logoLight from "@/assets/logo-light.png";
+import logoDark from "@/assets/logo-dark.jpg";
 
 export function Footer() {
   return (
@@ -7,31 +7,31 @@ export function Footer() {
       <div className="mx-auto max-w-[1400px] px-6 py-20 md:px-10">
         <div className="grid gap-14 md:grid-cols-4">
           <div className="md:col-span-1">
-            <img src={logoLight} alt="London Furniture Studio" className="h-auto w-[220px] max-w-full" />
+            <img src={logoDark} alt="London Furniture Studio" className="block h-auto w-[260px] max-w-full" />
             <div className="mt-6 h-px w-14 bg-brass" />
-            <p className="mt-6 text-sm leading-relaxed text-ivory/70 max-w-[240px]">Bespoke joinery for London's finest homes and developments.</p>
+            <p className="mt-6 max-w-[240px] text-sm leading-relaxed text-ivory/70">Bespoke joinery for London's finest homes and developments.</p>
           </div>
 
           <div>
-            <p className="eyebrow text-brass mb-4">Studio</p>
+            <p className="eyebrow mb-4 text-brass">Studio</p>
             <address className="not-italic text-sm leading-relaxed text-ivory/80">
               Unit 28, Phoenix Park<br />
-              Nelson's Lane, Hurst<br />
+              Nelson&apos;s Lane, Hurst<br />
               Reading RG10 0RR<br />
               United Kingdom
             </address>
           </div>
 
           <div>
-            <p className="eyebrow text-brass mb-4">Enquiries</p>
+            <p className="eyebrow mb-4 text-brass">Enquiries</p>
             <ul className="space-y-2 text-sm text-ivory/80">
               <li>
-                <a href="mailto:info@londonfurniturestudio.com" className="hover:text-brass transition">
+                <a href="mailto:info@londonfurniturestudio.com" className="transition hover:text-brass">
                   info@londonfurniturestudio.com
                 </a>
               </li>
               <li>
-                <a href="tel:+442080505843" className="hover:text-brass transition">
+                <a href="tel:+442080505843" className="transition hover:text-brass">
                   020 8050 5843
                 </a>
               </li>
@@ -39,12 +39,12 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="eyebrow text-brass mb-4">Follow</p>
+            <p className="eyebrow mb-4 text-brass">Follow</p>
             <a
               href="https://www.instagram.com/londonfurniturestudio/"
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-ivory/80 hover:text-brass transition"
+              className="inline-flex items-center gap-2 text-sm text-ivory/80 transition hover:text-brass"
               aria-label="Instagram"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4">
@@ -55,10 +55,10 @@ export function Footer() {
               @londonfurniturestudio
             </a>
             <nav className="mt-8 flex flex-col gap-2 text-sm text-ivory/70">
-              <Link to="/who-we-are" className="hover:text-brass transition">Who We Are</Link>
-              <Link to="/what-we-do" className="hover:text-brass transition">What We Do</Link>
-              <Link to="/projects" className="hover:text-brass transition">Projects</Link>
-              <Link to="/contact" className="hover:text-brass transition">Contact</Link>
+              <Link to="/who-we-are" className="transition hover:text-brass">Who We Are</Link>
+              <Link to="/what-we-do" className="transition hover:text-brass">What We Do</Link>
+              <Link to="/projects" className="transition hover:text-brass">Projects</Link>
+              <Link to="/contact" className="transition hover:text-brass">Contact</Link>
             </nav>
           </div>
         </div>
