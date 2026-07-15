@@ -31,11 +31,12 @@ function WhoWeAre() {
       <section className="mx-auto max-w-[1000px] px-6 py-24 md:px-10 md:py-32">
         <div className="hairline hairline-before mx-auto"><span className="eyebrow text-brass">Our Story</span></div>
         <p className="mt-10 font-display text-[1.6rem] leading-[1.4] text-forest md:text-[2rem]">
-          London Furniture Studio was founded on a simple belief — that great cabinetry is made slowly, by hand, by people who genuinely love the material.
+          London Furniture Studio was founded by Max and Cam, two highly experienced carpenters united by a shared passion for precision and the timeless beauty of raw materials.
         </p>
-        <div className="mt-10 grid gap-8 text-muted-foreground md:grid-cols-2">
-          <p>From our workshop in Hurst, Berkshire, we design and hand-build bespoke joinery for private clients, developers, architects and interior designers. Every commission is drawn, made and finished under one roof — a rare thing, and the reason our work carries the coherence it does.</p>
-          <p>Our small team includes designers, cabinetmakers, veneer specialists and finishers, each with a decade or more of experience with the very best of London's residential projects. We take on a limited number of commissions each year so that every project receives the attention it deserves.</p>
+        <div className="mt-10 space-y-6 text-muted-foreground leading-relaxed">
+          <p>Driven by the belief that furniture should be both sculptural and functional, they established the studio to bring a refined, bespoke approach to contemporary interiors.</p>
+          <p>Today, London Furniture Studio is a small, highly specialised team of master carpenters and cabinet makers. We design, build, and fit exceptional, high-end bespoke units for premium residential and commercial projects.</p>
+          <p>For us, luxury lies in the details. From the initial hand-drawn concept to the final, seamless installation, we work closely with discerning clients, architects, and designers who demand uncompromising quality. Our aesthetic is clean, elegant, and understated — celebrating minimalist lines, rich textures, and superior craftsmanship.</p>
         </div>
       </section>
 
