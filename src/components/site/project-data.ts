@@ -3,13 +3,13 @@ import projKitchen from "@/assets/proj-kitchen.jpg";
 import projWardrobe from "@/assets/proj-wardrobe.jpg";
 import projShelving from "@/assets/proj-shelving.jpg";
 import projMedia from "@/assets/proj-media.jpg";
-import projectDarkLibrary from "@/assets/project-dark-library.jpg.asset.json";
-import projectMirroredDressingRoom from "@/assets/project-mirrored-dressing-room.jpg.asset.json";
-import projectLightKitchen from "@/assets/project-light-kitchen.jpg.asset.json";
-import projectStGeorgesHillLibrary from "@/assets/project-st-georges-hill-library.jpg.asset.json";
-import projectBar from "@/assets/project-bar.jpg.asset.json";
-import projectMediaWall from "@/assets/project-media-wall.jpg.asset.json";
-import project3607 from "@/assets/project-3607.jpg.asset.json";
+import projectDarkLibrary from "@/assets/project-dark-library.jpg";
+import projectMirroredDressingRoom from "@/assets/project-mirrored-dressing-room.jpg";
+import projectLightKitchen from "@/assets/project-light-kitchen.jpg";
+import projectStGeorgesHillLibrary from "@/assets/project-st-georges-hill-library.jpg";
+import projectBar from "@/assets/project-bar.jpg";
+import projectMediaWall from "@/assets/project-media-wall.jpg";
+import project3607 from "@/assets/project-3607.jpg";
 
 export type ProjectItem = {
   src: string;
