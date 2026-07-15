@@ -8,17 +8,30 @@ type Props = {
 };
 
 export function HeroMedia({ video = false, alt = "Bespoke joinery by London Furniture Studio" }: Props) {
-  const [ended, setEnded] = useState(!video);
+  // Only enable video on mobile/tablet (viewport < 1024px). Desktop shows still only.
+  const [enableVideo, setEnableVideo] = useState(false);
+  const [ended, setEnded] = useState(true);
   const ref = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     if (!video) return;
+    const mq = window.matchMedia("(max-width: 1023px)");
+    const apply = () => {
+      const on = mq.matches;
+      setEnableVideo(on);
+      setEnded(!on);
+    };
+    apply();
+    mq.addEventListener("change", apply);
+    return () => mq.removeEventListener("change", apply);
+  }, [video]);
+
+  useEffect(() => {
+    if (!enableVideo) return;
     const v = ref.current;
     if (!v) return;
-    // Best-effort autoplay
-    const tryPlay = () => v.play().catch(() => setEnded(true));
-    tryPlay();
-  }, [video]);
+    v.play().catch(() => setEnded(true));
+  }, [enableVideo]);
 
   return (
     <>
@@ -32,7 +45,7 @@ export function HeroMedia({ video = false, alt = "Bespoke joinery by London Furn
         }}
         fetchPriority="high"
       />
-      {video && (
+      {video && enableVideo && (
         <video
           ref={ref}
           src="/hero.mp4"
