@@ -17,10 +17,10 @@ export const Route = createFileRoute("/what-we-do")({
 const steps = [
   { n: "01", title: "Consultation", copy: "We begin with an unhurried conversation — on site, in the studio, or with your design team — to understand the space, the brief and the ambition." },
   { n: "02", title: "Design & Drawing", copy: "Our designers develop bespoke drawings, material palettes and full-size samples. Nothing enters the workshop until every detail is resolved." },
-  { n: "03", title: "Making", copy: "In our Berkshire workshop, cabinetmakers, veneer specialists and finishers hand-build every piece. We work primarily in solid timber, veneered panels, brass, stone and leather." },
+  { n: "03", title: "Construction", copy: "In our Berkshire workshop, cabinetmakers, veneer specialists and finishers hand-build every piece. We work primarily in solid timber, veneered panels, brass, stone and leather." },
   { n: "04", title: "Finishing", copy: "Each surface is hand-finished in-house — a process no machine can replicate. It is what gives our work its quiet, tactile depth." },
   { n: "05", title: "Installation", copy: "Our own installers fit every commission personally. We handle site protection, coordination with trades and final adjustments." },
-  { n: "06", title: "Aftercare", copy: "We stand behind our work. Every piece is documented and supported for the long life it is built to have." },
+  { n: "06", title: "Sign Off", copy: "A final walkthrough with the client and design team. Every detail is checked, documented and handed over — a piece ready for the long life it is built to have." },
 ];
 
 function WhatWeDo() {
