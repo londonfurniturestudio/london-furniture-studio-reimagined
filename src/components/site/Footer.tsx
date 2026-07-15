@@ -15,8 +15,9 @@ export function Footer() {
           <div>
             <p className="eyebrow text-brass mb-4">Studio</p>
             <address className="not-italic text-sm leading-relaxed text-ivory/80">
-              Phoenix Way<br />
-              Hurst, Reading<br />
+              Unit 28, Phoenix Park<br />
+              Nelson's Lane, Hurst<br />
+              Reading RG10 0RR<br />
               United Kingdom
             </address>
           </div>
@@ -25,13 +26,13 @@ export function Footer() {
             <p className="eyebrow text-brass mb-4">Enquiries</p>
             <ul className="space-y-2 text-sm text-ivory/80">
               <li>
-                <a href="mailto:studio@londonfurniturestudio.com" className="hover:text-brass transition">
-                  studio@londonfurniturestudio.com
+                <a href="mailto:info@londonfurniturestudio.com" className="hover:text-brass transition">
+                  info@londonfurniturestudio.com
                 </a>
               </li>
               <li>
-                <a href="tel:+441189000000" className="hover:text-brass transition">
-                  +44 (0) 118 900 0000
+                <a href="tel:+442080505843" className="hover:text-brass transition">
+                  020 8050 5843
                 </a>
               </li>
             </ul>
