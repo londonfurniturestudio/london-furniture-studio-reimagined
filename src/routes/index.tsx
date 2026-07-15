@@ -3,6 +3,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { Testimonials } from "@/components/site/Testimonials";
 import { ProjectCarousel } from "@/components/site/ProjectCarousel";
 import heroImg from "@/assets/hero-office.jpg.asset.json";
+import logoLight from "@/assets/logo-light.png.asset.json";
 import featureImg from "@/assets/feature-kitchen.jpg";
 import tileCommercial from "@/assets/tile-commercial.jpg";
 import tileArchitects from "@/assets/tile-architects.jpg";
@@ -44,8 +45,13 @@ function Home() {
         />
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(20,42,40,0.55) 0%, rgba(20,42,40,0.25) 40%, rgba(20,42,40,0.75) 100%)" }} />
         <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col items-center justify-center px-6 text-center text-ivory md:px-10">
-          <p className="eyebrow text-brass animate-fade-up">Bespoke Furniture · Est. London</p>
-          <h1 className="mt-6 max-w-4xl font-display text-[2.5rem] leading-[1.05] md:text-[4.75rem] animate-fade-up" style={{ animationDelay: "120ms" }}>
+          <img
+            src={logoLight.url}
+            alt="London Furniture Studio"
+            className="w-[180px] md:w-[240px] animate-fade-up"
+            fetchPriority="high"
+          />
+          <h1 className="mt-8 max-w-4xl font-display text-[2.5rem] leading-[1.05] md:text-[4.75rem] animate-fade-up" style={{ animationDelay: "120ms" }}>
             Cabinetry <em className="italic text-brass-soft">crafted</em> for the finest interiors.
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-ivory/85 animate-fade-up" style={{ animationDelay: "240ms" }}>
@@ -62,17 +68,22 @@ function Home() {
       </section>
 
       {/* BLURB + CTA */}
-      <section className="mx-auto max-w-[1100px] px-6 py-28 text-center md:py-36 md:px-10">
+      <section className="mx-auto max-w-[1100px] px-6 pt-28 pb-16 text-center md:pt-36 md:pb-20 md:px-10">
         <div className="hairline hairline-before hairline-after mx-auto">
           <span className="eyebrow text-brass">The Studio</span>
         </div>
         <h2 className="mx-auto mt-8 max-w-3xl font-display text-[2rem] leading-[1.15] text-forest md:text-[3rem]">
           Quiet, uncompromising craftsmanship — from first sketch to final hand-polish.
         </h2>
-        <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground">
-          London Furniture Studio is a Berkshire-based workshop making bespoke cabinetry, fitted joinery and freestanding furniture for private clients, architects and interior designers. We work almost exclusively on projects in Chelsea, Marylebone, Belgravia and the surrounding neighbourhoods — bringing the same standard of care to every commission, whatever its scale.
-        </p>
-        <div className="mt-12">
+        <div className="mx-auto mt-8 max-w-2xl space-y-5 text-base leading-relaxed text-muted-foreground">
+          <p>
+            London Furniture Studio is a bespoke cabinetry and furniture manufacturer specialising in designing and handcrafting all varieties of furniture in the residential and commercial market. With the combined experience of over a decade in Fine Furniture, we can proudly offer a truly beautiful and long-lasting product.
+          </p>
+          <p>
+            We offer all forms of furniture and cabinetry, including Walk-in Closets, Fitted Wardrobes, Dressing Rooms, Bespoke Kitchens, Media Rooms, Living Rooms, Bathrooms and unique Freestanding Pieces. Our range of materials stem from man-made boards like veneered MDF and Melamine to Fine Timber, Brass and Mirror/Glass.
+          </p>
+        </div>
+        <div className="mt-10">
           <Link to="/who-we-are" className="btn-brand btn-brand-hover">Meet the Team</Link>
         </div>
       </section>
@@ -81,7 +92,7 @@ function Home() {
       <Testimonials />
 
       {/* FEATURE PHOTO */}
-      <section className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
+      <section className="mx-auto max-w-[1400px] px-6 pt-16 pb-24 md:px-10 md:pt-20 md:pb-32">
         <figure className="relative overflow-hidden">
           <img
             src={featureImg}
