@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { submitContactEnquiry } from "@/lib/contact.functions";
+
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined;
 
 type FormState = {
   name: string;
@@ -31,13 +31,21 @@ export const Route = createFileRoute("/contact")({
 });
 
 function Contact() {
-  const sendEnquiry = useServerFn(submitContactEnquiry);
   const [form, setForm] = useState<FormState>(initialFormState);
   const [status, setStatus] = useState<string>("");
   const [submitting, setSubmitting] = useState(false);
 
   const updateField = (field: keyof FormState, value: string) => {
     setForm((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const validate = (): string | null => {
+    if (!form.name.trim() || form.name.trim().length > 100) return "Please enter your name (max 100 characters).";
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRe.test(form.email.trim()) || form.email.trim().length > 255) return "Please enter a valid email address.";
+    if (form.telephone.trim().length > 50) return "Telephone is too long.";
+    if (!form.message.trim() || form.message.trim().length > 2000) return "Please tell us about your project (max 2000 characters).";
+    return null;
   };
 
   return (
@@ -76,13 +84,38 @@ function Contact() {
             className="flex flex-col gap-5"
             onSubmit={async (e) => {
               e.preventDefault();
+              const validationError = validate();
+              if (validationError) {
+                setStatus(validationError);
+                return;
+              }
+              if (!WEB3FORMS_ACCESS_KEY) {
+                setStatus("The contact form is not fully configured yet. Please email info@londonfurniturestudio.com directly.");
+                return;
+              }
               setSubmitting(true);
               setStatus("");
               try {
-                const result = await sendEnquiry({ data: form });
-                setStatus(result.message);
-                if (result.ok) {
+                const res = await fetch("https://api.web3forms.com/submit", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json", Accept: "application/json" },
+                  body: JSON.stringify({
+                    access_key: WEB3FORMS_ACCESS_KEY,
+                    subject: `New enquiry from ${form.name.trim()}`,
+                    from_name: "London Furniture Studio Website",
+                    name: form.name.trim(),
+                    email: form.email.trim(),
+                    telephone: form.telephone.trim(),
+                    message: form.message.trim(),
+                    replyto: form.email.trim(),
+                  }),
+                });
+                const data = await res.json();
+                if (data.success) {
+                  setStatus("Thank you — your enquiry has been sent. We'll be in touch shortly.");
                   setForm(initialFormState);
+                } else {
+                  setStatus("We couldn't send your enquiry. Please email info@londonfurniturestudio.com directly.");
                 }
               } catch {
                 setStatus("Something went wrong while sending your enquiry. Please try again.");
@@ -93,19 +126,19 @@ function Contact() {
           >
             <label className="flex flex-col gap-2">
               <span className="eyebrow text-forest">Name</span>
-              <input required value={form.name} onChange={(e) => updateField("name", e.target.value)} className="border-b border-forest/30 bg-transparent py-2 outline-none focus:border-brass" />
+              <input required maxLength={100} value={form.name} onChange={(e) => updateField("name", e.target.value)} className="border-b border-forest/30 bg-transparent py-2 outline-none focus:border-brass" />
             </label>
             <label className="flex flex-col gap-2">
               <span className="eyebrow text-forest">Email</span>
-              <input required type="email" value={form.email} onChange={(e) => updateField("email", e.target.value)} className="border-b border-forest/30 bg-transparent py-2 outline-none focus:border-brass" />
+              <input required type="email" maxLength={255} value={form.email} onChange={(e) => updateField("email", e.target.value)} className="border-b border-forest/30 bg-transparent py-2 outline-none focus:border-brass" />
             </label>
             <label className="flex flex-col gap-2">
               <span className="eyebrow text-forest">Telephone</span>
-              <input value={form.telephone} onChange={(e) => updateField("telephone", e.target.value)} className="border-b border-forest/30 bg-transparent py-2 outline-none focus:border-brass" />
+              <input maxLength={50} value={form.telephone} onChange={(e) => updateField("telephone", e.target.value)} className="border-b border-forest/30 bg-transparent py-2 outline-none focus:border-brass" />
             </label>
             <label className="flex flex-col gap-2">
               <span className="eyebrow text-forest">Tell us about your project</span>
-              <textarea required rows={5} value={form.message} onChange={(e) => updateField("message", e.target.value)} className="resize-none border-b border-forest/30 bg-transparent py-2 outline-none focus:border-brass" />
+              <textarea required rows={5} maxLength={2000} value={form.message} onChange={(e) => updateField("message", e.target.value)} className="resize-none border-b border-forest/30 bg-transparent py-2 outline-none focus:border-brass" />
             </label>
             {status ? <p className="text-sm text-muted-foreground">{status}</p> : null}
             <div className="pt-4">
