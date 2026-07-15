@@ -64,15 +64,15 @@ export function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col items-start justify-between gap-3 border-t border-ivory/10 pt-8 text-xs text-ivory/50 md:flex-row md:items-center">
-          <p>© {new Date().getFullYear()} London Furniture Studio Ltd. Registered in England &amp; Wales. Company No. 00000000.</p>
+          <p>© {new Date().getFullYear()} London Furniture Studio Ltd. Incorporated in England &amp; Wales, 2021.</p>
           <p>Bespoke joinery · Handcrafted in Berkshire</p>
         </div>
       </div>
 
       <div className="h-[380px] w-full">
         <iframe
-          title="London Furniture Studio Workshop — Phoenix Way, Hurst, Reading"
-          src="https://www.google.com/maps?q=Phoenix+Way,+Hurst,+Reading&output=embed"
+          title="London Furniture Studio Workshop — Unit 28, Phoenix Park, Nelson's Lane, Hurst, Reading RG10 0RR"
+          src="https://www.google.com/maps?q=Unit+28+Phoenix+Park+Nelson%27s+Lane+Hurst+Reading+RG10+0RR&output=embed"
           className="h-full w-full border-0 grayscale contrast-105"
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
