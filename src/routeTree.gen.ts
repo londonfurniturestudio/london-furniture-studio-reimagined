@@ -9,8 +9,32 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WhoWeAreRouteImport } from './routes/who-we-are'
+import { Route as WhatWeDoRouteImport } from './routes/what-we-do'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WhoWeAreRoute = WhoWeAreRouteImport.update({
+  id: '/who-we-are',
+  path: '/who-we-are',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WhatWeDoRoute = WhatWeDoRouteImport.update({
+  id: '/what-we-do',
+  path: '/what-we-do',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +43,78 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/projects': typeof ProjectsRoute
+  '/what-we-do': typeof WhatWeDoRoute
+  '/who-we-are': typeof WhoWeAreRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/projects': typeof ProjectsRoute
+  '/what-we-do': typeof WhatWeDoRoute
+  '/who-we-are': typeof WhoWeAreRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/projects': typeof ProjectsRoute
+  '/what-we-do': typeof WhatWeDoRoute
+  '/who-we-are': typeof WhoWeAreRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/contact' | '/projects' | '/what-we-do' | '/who-we-are'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/contact' | '/projects' | '/what-we-do' | '/who-we-are'
+  id:
+    | '__root__'
+    | '/'
+    | '/contact'
+    | '/projects'
+    | '/what-we-do'
+    | '/who-we-are'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  ProjectsRoute: typeof ProjectsRoute
+  WhatWeDoRoute: typeof WhatWeDoRoute
+  WhoWeAreRoute: typeof WhoWeAreRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/who-we-are': {
+      id: '/who-we-are'
+      path: '/who-we-are'
+      fullPath: '/who-we-are'
+      preLoaderRoute: typeof WhoWeAreRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/what-we-do': {
+      id: '/what-we-do'
+      path: '/what-we-do'
+      fullPath: '/what-we-do'
+      preLoaderRoute: typeof WhatWeDoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +127,10 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  ProjectsRoute: ProjectsRoute,
+  WhatWeDoRoute: WhatWeDoRoute,
+  WhoWeAreRoute: WhoWeAreRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
