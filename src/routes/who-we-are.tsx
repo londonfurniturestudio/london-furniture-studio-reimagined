@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import heroImg from "@/assets/hero-office.jpg.asset.json";
-import feature from "@/assets/feature-kitchen.jpg";
+import maxCam from "@/assets/max-cam.jpg.asset.json";
 
 export const Route = createFileRoute("/who-we-are")({
   head: () => ({
@@ -31,7 +31,7 @@ function WhoWeAre() {
       <section className="mx-auto max-w-[1000px] px-6 py-24 md:px-10 md:py-32">
         <div className="hairline hairline-before mx-auto"><span className="eyebrow text-brass">Our Story</span></div>
         <p className="mt-10 font-display text-[1.6rem] leading-[1.4] text-forest md:text-[2rem]">
-          London Furniture Studio was founded by Max and Cam, two highly experienced carpenters united by a shared passion for precision and the timeless beauty of raw materials.
+          London Furniture Studio was founded by Max and Cam in 2021, two highly experienced carpenters united by a shared passion for precision and the timeless beauty of raw materials.
         </p>
         <div className="mt-10 space-y-6 text-muted-foreground leading-relaxed">
           <p>Driven by the belief that furniture should be both sculptural and functional, they established the studio to bring a refined, bespoke approach to contemporary interiors.</p>
@@ -40,8 +40,11 @@ function WhoWeAre() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1400px] px-6 pb-24 md:px-10 md:pb-32">
-        <img src={feature} alt="LFS craftsmanship" loading="lazy" width={1600} height={1000} className="h-[520px] w-full object-cover md:h-[640px]" />
+      <section className="mx-auto max-w-[1100px] px-6 pb-24 md:px-10 md:pb-32">
+        <figure>
+          <img src={maxCam.url} alt="Max and Cam, founders of London Furniture Studio" loading="lazy" className="h-[520px] w-full object-cover md:h-[720px]" />
+          <figcaption className="mt-4 text-center text-[0.68rem] uppercase tracking-[0.28em] text-brass">Max &amp; Cam — Founders</figcaption>
+        </figure>
       </section>
 
       <section className="mx-auto max-w-[1100px] px-6 pb-28 text-center md:px-10 md:pb-36">
