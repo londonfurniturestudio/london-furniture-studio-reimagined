@@ -3,13 +3,13 @@ import projKitchen from "@/assets/proj-kitchen.jpg";
 import projWardrobe from "@/assets/proj-wardrobe.jpg";
 import projShelving from "@/assets/proj-shelving.jpg";
 import projMedia from "@/assets/proj-media.jpg";
-import projectDarkLibrary from "@/assets/project-dark-library.jpg.asset.json";
-import projectMirroredDressingRoom from "@/assets/project-mirrored-dressing-room.jpg.asset.json";
-import projectLightKitchen from "@/assets/project-light-kitchen.jpg.asset.json";
-import projectStGeorgesHillLibrary from "@/assets/project-st-georges-hill-library.jpg.asset.json";
-import projectBar from "@/assets/project-bar.jpg.asset.json";
-import projectMediaWall from "@/assets/project-media-wall.jpg.asset.json";
-import project3607 from "@/assets/project-3607.jpg.asset.json";
+import projectDarkLibrary from "@/assets/project-dark-library.jpg";
+import projectMirroredDressingRoom from "@/assets/project-mirrored-dressing-room.jpg";
+import projectLightKitchen from "@/assets/project-light-kitchen.jpg";
+import projectStGeorgesHillLibrary from "@/assets/project-st-georges-hill-library.jpg";
+import projectBar from "@/assets/project-bar.jpg";
+import projectMediaWall from "@/assets/project-media-wall.jpg";
+import project3607 from "@/assets/project-3607.jpg";
 
 export type ProjectItem = {
   src: string;
@@ -21,7 +21,7 @@ export type ProjectItem = {
 
 export const projectItems: ProjectItem[] = [
   {
-    src: projectStGeorgesHillLibrary.url,
+    src: projectStGeorgesHillLibrary,
     title: "Library",
     meta: "Residential · Library",
     location: "St Georges Hill, London",
@@ -63,42 +63,42 @@ export const projectItems: ProjectItem[] = [
     size: "tall",
   },
   {
-    src: projectMirroredDressingRoom.url,
+    src: projectMirroredDressingRoom,
     title: "Mirrored Dressing Room",
     meta: "Residential · Dressing Room",
     location: "London",
     size: "tall",
   },
   {
-    src: projectLightKitchen.url,
+    src: projectLightKitchen,
     title: "Bleached Oak Kitchen",
     meta: "Residential · Kitchen",
     location: "London",
     size: "wide",
   },
   {
-    src: projectDarkLibrary.url,
+    src: projectDarkLibrary,
     title: "Dark Oak Library",
     meta: "Residential · Library",
     location: "London",
     size: "tall",
   },
   {
-    src: projectBar.url,
+    src: projectBar,
     title: "Bespoke Bar",
     meta: "Residential · Bar",
     location: "London",
     size: "wide",
   },
   {
-    src: projectMediaWall.url,
+    src: projectMediaWall,
     title: "Media Wall",
     meta: "Residential · Media Room",
     location: "London",
     size: "wide",
   },
   {
-    src: project3607.url,
+    src: project3607,
     title: "Bespoke Joinery Detail",
     meta: "Residential · Joinery",
     location: "London",
