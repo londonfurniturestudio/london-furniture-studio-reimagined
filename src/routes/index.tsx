@@ -3,7 +3,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { Testimonials } from "@/components/site/Testimonials";
 import { ProjectCarousel } from "@/components/site/ProjectCarousel";
 import { HeroMedia } from "@/components/site/HeroMedia";
-import { InstagramPreview } from "@/components/site/InstagramPreview";
+
 import heroStill from "@/assets/hero-still.jpg";
 import tileCommercial from "@/assets/tile-commercial.jpg";
 import tileArchitects from "@/assets/tile-architects.jpg";
