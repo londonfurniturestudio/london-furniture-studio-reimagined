@@ -24,7 +24,7 @@ function WhoWeAre() {
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(20,42,40,0.5), rgba(20,42,40,0.75))" }} />
         <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col items-center justify-center px-6 pt-16 text-center text-ivory md:px-10">
           <p className="eyebrow text-brass">The Studio</p>
-          <h1 className="mt-5 font-display text-[2.5rem] leading-[1.05] md:text-[4.5rem]">Who We Are</h1>
+          <h1 className="mt-5 font-display text-[2.5rem] leading-[1.05] md:text-[4.5rem]">A studio built on craft.</h1>
         </div>
       </section>
 
