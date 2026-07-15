@@ -140,8 +140,6 @@
   font-weight: 400;
   transition: all 260ms ease;
   cursor: pointer;
-}
-@utility btn-brand-hover {
   &:hover {
     background: var(--color-brass);
     color: var(--color-forest-deep);
@@ -162,6 +160,10 @@
   text-transform: uppercase;
   transition: all 260ms ease;
   cursor: pointer;
+  &:hover {
+    background: transparent;
+    color: var(--color-brass);
+  }
 }
 
 @keyframes marquee {
