@@ -24,14 +24,14 @@ export const projectItems: ProjectItem[] = [
     src: projectStGeorgesHillLibrary.url,
     title: "Library",
     meta: "Residential · Library",
-    location: "St Georges Hill",
+    location: "St Georges Hill, London",
     size: "wide",
   },
   {
     src: projKitchen,
-    title: "Kensington Kitchen",
-    meta: "Residential · Kitchen",
-    location: "Kensington",
+    title: "Dressing Room",
+    meta: "Residential · Dressing Room",
+    location: "London",
     size: "wide",
   },
   {
