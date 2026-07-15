@@ -45,8 +45,13 @@ function Home() {
         />
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(20,42,40,0.55) 0%, rgba(20,42,40,0.25) 40%, rgba(20,42,40,0.75) 100%)" }} />
         <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col items-center justify-center px-6 text-center text-ivory md:px-10">
-          <p className="eyebrow text-brass animate-fade-up">Bespoke Furniture · Est. London</p>
-          <h1 className="mt-6 max-w-4xl font-display text-[2.5rem] leading-[1.05] md:text-[4.75rem] animate-fade-up" style={{ animationDelay: "120ms" }}>
+          <img
+            src={logoLight.url}
+            alt="London Furniture Studio"
+            className="w-[180px] md:w-[240px] animate-fade-up"
+            fetchPriority="high"
+          />
+          <h1 className="mt-8 max-w-4xl font-display text-[2.5rem] leading-[1.05] md:text-[4.75rem] animate-fade-up" style={{ animationDelay: "120ms" }}>
             Cabinetry <em className="italic text-brass-soft">crafted</em> for the finest interiors.
           </h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-ivory/85 animate-fade-up" style={{ animationDelay: "240ms" }}>
