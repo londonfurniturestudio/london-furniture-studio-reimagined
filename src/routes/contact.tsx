@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { SiteLayout } from "@/components/site/SiteLayout";
 
-const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY as string | undefined;
+const WEB3FORMS_ACCESS_KEY = "e0cc1dea-017e-4834-84f3-ce06554e21c9";
 
 type FormState = {
   name: string;
