@@ -35,11 +35,14 @@ export function HeroMedia({ video = false, alt = "Bespoke joinery by London Furn
 
   return (
     <>
-      {/* Still always sits underneath — instant reveal when video hides */}
       <img
         src={heroStill}
         alt={alt}
         className="absolute inset-0 h-full w-full object-cover"
+        style={{
+          opacity: ended ? 1 : 0,
+          transition: "opacity 1400ms ease-in-out",
+        }}
         fetchPriority="high"
       />
       {video && enableVideo && (
@@ -51,13 +54,10 @@ export function HeroMedia({ video = false, alt = "Bespoke joinery by London Furn
           autoPlay
           preload="auto"
           onEnded={() => setEnded(true)}
-          onTimeUpdate={(e) => {
-            const v = e.currentTarget;
-            if (v.duration && v.currentTime >= v.duration - 0.08) setEnded(true);
-          }}
           className="absolute inset-0 h-full w-full object-cover"
           style={{
-            visibility: ended ? "hidden" : "visible",
+            opacity: ended ? 0 : 1,
+            transition: "opacity 1400ms ease-in-out",
             objectPosition: "center 30%",
           }}
         />
