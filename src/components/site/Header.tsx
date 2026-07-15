@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-
+import logoMark from "@/assets/logo-mark.png.asset.json";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -29,22 +29,23 @@ export function Header() {
         boxShadow: scrolled ? "0 1px 0 rgba(201,168,128,0.15)" : "none",
       }}
     >
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 md:px-10" style={{ height: scrolled ? "72px" : "92px", transition: "height 400ms ease" }}>
-        <Link to="/" className="flex items-baseline gap-3" aria-label="London Furniture Studio home">
-          <span
-            className="font-display text-ivory transition-all duration-500"
-            style={{ fontSize: scrolled ? "1.35rem" : "1.6rem", letterSpacing: "0.14em" }}
-          >
-            LFS
-          </span>
-          <span
-            className="hidden sm:inline text-[0.62rem] uppercase tracking-[0.32em] text-brass"
-          >
+      <div
+        className="mx-auto flex max-w-[1400px] items-center justify-between px-6 md:px-10"
+        style={{ height: scrolled ? "72px" : "92px", transition: "height 400ms ease" }}
+      >
+        <Link to="/" className="flex items-center gap-3" aria-label="London Furniture Studio home">
+          <img
+            src={logoMark.url}
+            alt="London Furniture Studio"
+            className="w-auto transition-all duration-500"
+            style={{ height: scrolled ? "48px" : "64px" }}
+          />
+          <span className="hidden sm:inline text-[0.62rem] uppercase tracking-[0.32em] text-brass">
             London Furniture Studio
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-9 md:flex">
+        <nav className="hidden items-center gap-9 lg:flex">
           {nav.map((item) => (
             <Link
               key={item.to}
@@ -59,7 +60,7 @@ export function Header() {
         </nav>
 
         <button
-          className="md:hidden text-ivory"
+          className="lg:hidden text-ivory"
           aria-label="Menu"
           onClick={() => setOpen((v) => !v)}
         >
@@ -70,7 +71,7 @@ export function Header() {
       </div>
 
       {open && (
-        <div className="md:hidden" style={{ backgroundColor: "var(--color-forest-deep)" }}>
+        <div className="lg:hidden" style={{ backgroundColor: "var(--color-forest-deep)" }}>
           <nav className="flex flex-col gap-4 px-6 py-6">
             {nav.map((item) => (
               <Link

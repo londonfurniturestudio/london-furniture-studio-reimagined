@@ -1,11 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import p1 from "@/assets/project-1.jpg";
-import p2 from "@/assets/project-2.jpg";
-import p3 from "@/assets/project-3.jpg";
-import feature from "@/assets/feature-kitchen.jpg";
-import tileC from "@/assets/tile-commercial.jpg";
-import tileR from "@/assets/tile-residential.jpg";
+import projMedia from "@/assets/proj-media.jpg.asset.json";
+import projKitchen from "@/assets/proj-kitchen.jpg.asset.json";
+import projWardrobe from "@/assets/proj-wardrobe.jpg.asset.json";
+import projLibrary from "@/assets/proj-library.jpg.asset.json";
+import projShelving from "@/assets/proj-shelving.jpg.asset.json";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -14,19 +13,18 @@ export const Route = createFileRoute("/projects")({
       { name: "description", content: "Selected bespoke joinery projects from London Furniture Studio across Chelsea, Marylebone, Belgravia and beyond." },
       { property: "og:title", content: "Projects — London Furniture Studio" },
       { property: "og:description", content: "Selected bespoke joinery from LFS." },
-      { property: "og:image", content: p1 },
+      { property: "og:image", content: projLibrary.url },
     ],
   }),
   component: Projects,
 });
 
 const projects = [
-  { img: p1, title: "Belgravia Residence", cat: "Residential · Media Wall", size: "tall" },
-  { img: feature, title: "Chelsea Kitchen", cat: "Residential · Kitchen", size: "wide" },
-  { img: p2, title: "Marylebone Dressing Room", cat: "Residential · Wardrobe", size: "tall" },
-  { img: tileC, title: "Mayfair Members' Club", cat: "Commercial · Hospitality", size: "wide" },
-  { img: p3, title: "Kensington Library", cat: "Residential · Library", size: "tall" },
-  { img: tileR, title: "Notting Hill Townhouse", cat: "Residential · Living", size: "wide" },
+  { img: projLibrary.url, title: "Walnut Library & Study", cat: "Residential · Library", size: "tall" },
+  { img: projKitchen.url, title: "Kensington Kitchen", cat: "Residential · Kitchen", size: "wide" },
+  { img: projWardrobe.url, title: "Bespoke Dressing Room", cat: "Residential · Wardrobe", size: "tall" },
+  { img: projShelving.url, title: "Illuminated Oak Shelving", cat: "Residential · Living", size: "wide" },
+  { img: projMedia.url, title: "Marquetry Media Unit", cat: "Residential · Media", size: "tall" },
 ];
 
 function Projects() {

@@ -3,7 +3,7 @@ import { SiteLayout } from "@/components/site/SiteLayout";
 import { Testimonials } from "@/components/site/Testimonials";
 import { ProjectCarousel } from "@/components/site/ProjectCarousel";
 import heroImg from "@/assets/hero-office.jpg.asset.json";
-import logoLight from "@/assets/logo-light.png.asset.json";
+
 import featureImg from "@/assets/feature-kitchen.jpg";
 import tileCommercial from "@/assets/tile-commercial.jpg";
 import tileArchitects from "@/assets/tile-architects.jpg";
@@ -45,23 +45,18 @@ function Home() {
         />
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(20,42,40,0.55) 0%, rgba(20,42,40,0.25) 40%, rgba(20,42,40,0.75) 100%)" }} />
         <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col items-center justify-center px-6 text-center text-ivory md:px-10">
-          <img
-            src={logoLight.url}
-            alt="London Furniture Studio"
-            className="w-[180px] md:w-[240px] animate-fade-up"
-            fetchPriority="high"
-          />
-          <h1 className="mt-8 max-w-4xl font-display text-[2.5rem] leading-[1.05] md:text-[4.75rem] animate-fade-up" style={{ animationDelay: "120ms" }}>
+          <h1 className="max-w-4xl font-display text-[2.5rem] leading-[1.05] md:text-[4.75rem] animate-fade-up">
             Cabinetry <em className="italic text-brass-soft">crafted</em> for the finest interiors.
           </h1>
-          <p className="mt-6 max-w-xl text-base leading-relaxed text-ivory/85 animate-fade-up" style={{ animationDelay: "240ms" }}>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-ivory/85 animate-fade-up" style={{ animationDelay: "120ms" }}>
             A workshop of makers designing bespoke joinery for London's most considered homes and developments.
           </p>
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4 animate-fade-up" style={{ animationDelay: "360ms" }}>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4 animate-fade-up" style={{ animationDelay: "240ms" }}>
             <Link to="/projects" className="btn-brand-solid btn-brand-solid-hover">View Our Work</Link>
             <Link to="/contact" className="btn-brand btn-brand-hover text-ivory">Start a Project</Link>
           </div>
         </div>
+
         <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-ivory/60">
           <svg width="18" height="30" viewBox="0 0 18 30" fill="none"><rect x="1" y="1" width="16" height="28" rx="8" stroke="currentColor" /><circle cx="9" cy="9" r="1.5" fill="currentColor"><animate attributeName="cy" from="9" to="20" dur="1.8s" repeatCount="indefinite" /></circle></svg>
         </div>
@@ -77,7 +72,7 @@ function Home() {
         </h2>
         <div className="mx-auto mt-8 max-w-2xl space-y-5 text-base leading-relaxed text-muted-foreground">
           <p>
-            London Furniture Studio is a bespoke cabinetry and furniture manufacturer specialising in designing and handcrafting all varieties of furniture in the residential and commercial market. With the combined experience of over a decade in Fine Furniture, we can proudly offer a truly beautiful and long-lasting product.
+            London Furniture Studio is a bespoke cabinetry and furniture manufacturer specialising in designing and handcrafting all varieties of furniture in the residential and commercial market. With the combined experience of over 30 years in Fine Furniture, we can proudly offer a truly beautiful and long-lasting product.
           </p>
           <p>
             We offer all forms of furniture and cabinetry, including Walk-in Closets, Fitted Wardrobes, Dressing Rooms, Bespoke Kitchens, Media Rooms, Living Rooms, Bathrooms and unique Freestanding Pieces. Our range of materials stem from man-made boards like veneered MDF and Melamine to Fine Timber, Brass and Mirror/Glass.

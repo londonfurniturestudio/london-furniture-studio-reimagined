@@ -1,38 +1,28 @@
 const items = [
   {
     quote:
-      "The craftsmanship is exceptional. Every detail — from the veneer match to the brass inlay — was executed to a standard I've rarely seen.",
-    author: "Interior Designer, Chelsea",
+      "Extremely professional service, would definitely recommend and use again for anything bespoke!",
+    author: "Private Client",
   },
   {
     quote:
-      "A rare studio that treats bespoke as a discipline, not a marketing word. Our clients are consistently delighted.",
-    author: "Architect, Marylebone",
-  },
-  {
-    quote:
-      "Impeccable joinery, unhurried process, and a team that genuinely cares. They have become our first call for every project.",
-    author: "Developer, Notting Hill",
-  },
-  {
-    quote:
-      "The finish quality is on another level. Timeless work that elevates the entire home.",
-    author: "Private Client, Belgravia",
+      "Professional and excellent craftsmanship. Very pleased with all of the work completed! Our media unit is of a very high standard.",
+    author: "Private Client",
   },
 ];
 
 export function Testimonials() {
-  const loop = [...items, ...items];
+  const loop = [...items, ...items, ...items, ...items];
   return (
-    <section className="overflow-hidden bg-background">
-      <div className="animate-marquee flex items-center gap-14 py-6 whitespace-nowrap">
+    <section className="overflow-hidden bg-background border-y border-forest/10">
+      <div className="animate-marquee flex items-center py-8 whitespace-nowrap">
         {loop.map((t, i) => (
-          <figure key={i} className="flex items-center gap-4 whitespace-normal px-4">
-            <span className="font-display text-2xl leading-none text-forest">&ldquo;</span>
-            <blockquote className="font-display text-[1.15rem] leading-snug italic text-forest max-w-[520px]">
+          <figure key={i} className="flex shrink-0 items-center gap-5 px-10">
+            <span className="font-display text-3xl leading-none text-brass">&ldquo;</span>
+            <blockquote className="font-display text-[1.2rem] leading-snug italic text-forest">
               {t.quote}
             </blockquote>
-            <figcaption className="shrink-0 text-[0.65rem] uppercase tracking-[0.28em] text-forest/70">
+            <figcaption className="shrink-0 text-[0.65rem] uppercase tracking-[0.28em] text-forest/60">
               — {t.author}
             </figcaption>
           </figure>
