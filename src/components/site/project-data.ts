@@ -21,7 +21,7 @@ export type ProjectItem = {
 
 export const projectItems: ProjectItem[] = [
   {
-    src: projectStGeorgesHillLibrary.url,
+    src: projectStGeorgesHillLibrary,
     title: "Library",
     meta: "Residential · Library",
     location: "St Georges Hill, London",
@@ -63,42 +63,42 @@ export const projectItems: ProjectItem[] = [
     size: "tall",
   },
   {
-    src: projectMirroredDressingRoom.url,
+    src: projectMirroredDressingRoom,
     title: "Mirrored Dressing Room",
     meta: "Residential · Dressing Room",
     location: "London",
     size: "tall",
   },
   {
-    src: projectLightKitchen.url,
+    src: projectLightKitchen,
     title: "Bleached Oak Kitchen",
     meta: "Residential · Kitchen",
     location: "London",
     size: "wide",
   },
   {
-    src: projectDarkLibrary.url,
+    src: projectDarkLibrary,
     title: "Dark Oak Library",
     meta: "Residential · Library",
     location: "London",
     size: "tall",
   },
   {
-    src: projectBar.url,
+    src: projectBar,
     title: "Bespoke Bar",
     meta: "Residential · Bar",
     location: "London",
     size: "wide",
   },
   {
-    src: projectMediaWall.url,
+    src: projectMediaWall,
     title: "Media Wall",
     meta: "Residential · Media Room",
     location: "London",
     size: "wide",
   },
   {
-    src: project3607.url,
+    src: project3607,
     title: "Bespoke Joinery Detail",
     meta: "Residential · Joinery",
     location: "London",
