@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import logoLight from "@/assets/logo-dark.jpg.asset.json";
+
 
 const nav = [
   { to: "/", label: "Home" },
