@@ -30,13 +30,18 @@ export function Header() {
       }}
     >
       <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 md:px-10" style={{ height: scrolled ? "72px" : "92px", transition: "height 400ms ease" }}>
-        <Link to="/" className="flex items-center gap-3" aria-label="London Furniture Studio home">
-          <img
-            src={logoLight.url}
-            alt="London Furniture Studio"
-            className="h-14 w-auto md:h-16 transition-all duration-500"
-            style={{ height: scrolled ? "48px" : "64px" }}
-          />
+        <Link to="/" className="flex items-baseline gap-3" aria-label="London Furniture Studio home">
+          <span
+            className="font-display text-ivory transition-all duration-500"
+            style={{ fontSize: scrolled ? "1.35rem" : "1.6rem", letterSpacing: "0.14em" }}
+          >
+            LFS
+          </span>
+          <span
+            className="hidden sm:inline text-[0.62rem] uppercase tracking-[0.32em] text-brass"
+          >
+            London Furniture Studio
+          </span>
         </Link>
 
         <nav className="hidden items-center gap-9 md:flex">
