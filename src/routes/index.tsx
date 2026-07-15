@@ -1,24 +1,150 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { SiteLayout } from "@/components/site/SiteLayout";
+import { Testimonials } from "@/components/site/Testimonials";
+import { ProjectCarousel } from "@/components/site/ProjectCarousel";
+import heroImg from "@/assets/hero-office.jpg.asset.json";
+import featureImg from "@/assets/feature-kitchen.jpg";
+import tileCommercial from "@/assets/tile-commercial.jpg";
+import tileArchitects from "@/assets/tile-architects.jpg";
+import tileResidential from "@/assets/tile-residential.jpg";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title: "London Furniture Studio — Bespoke Joinery & Fine Cabinetry" },
+      {
+        name: "description",
+        content:
+          "London Furniture Studio designs and handcrafts bespoke joinery for the finest homes and developments in Chelsea, Marylebone, Belgravia and beyond.",
+      },
+      { property: "og:title", content: "London Furniture Studio — Bespoke Joinery & Fine Cabinetry" },
+      {
+        property: "og:description",
+        content: "Handcrafted cabinetry and joinery for the world's finest interiors.",
+      },
+      { property: "og:image", content: heroImg.url },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: heroImg.url },
+    ],
+  }),
+  component: Home,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+function Home() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <SiteLayout>
+      {/* HERO */}
+      <section className="relative h-[100svh] min-h-[640px] w-full overflow-hidden">
+        <img
+          src={heroImg.url}
+          alt="Bespoke walnut library and study by London Furniture Studio"
+          className="absolute inset-0 h-full w-full object-cover"
+          fetchPriority="high"
+        />
+        <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(20,42,40,0.55) 0%, rgba(20,42,40,0.25) 40%, rgba(20,42,40,0.75) 100%)" }} />
+        <div className="relative z-10 mx-auto flex h-full max-w-[1400px] flex-col items-center justify-center px-6 text-center text-ivory md:px-10">
+          <p className="eyebrow text-brass animate-fade-up">Bespoke Furniture · Est. London</p>
+          <h1 className="mt-6 max-w-4xl font-display text-[2.5rem] leading-[1.05] md:text-[4.75rem] animate-fade-up" style={{ animationDelay: "120ms" }}>
+            Cabinetry <em className="italic text-brass-soft">crafted</em> for the finest interiors.
+          </h1>
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-ivory/85 animate-fade-up" style={{ animationDelay: "240ms" }}>
+            A workshop of makers designing bespoke joinery for London's most considered homes and developments.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4 animate-fade-up" style={{ animationDelay: "360ms" }}>
+            <Link to="/projects" className="btn-brand-solid btn-brand-solid-hover">View Our Work</Link>
+            <Link to="/contact" className="btn-brand btn-brand-hover text-ivory">Start a Project</Link>
+          </div>
+        </div>
+        <div className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-ivory/60">
+          <svg width="18" height="30" viewBox="0 0 18 30" fill="none"><rect x="1" y="1" width="16" height="28" rx="8" stroke="currentColor" /><circle cx="9" cy="9" r="1.5" fill="currentColor"><animate attributeName="cy" from="9" to="20" dur="1.8s" repeatCount="indefinite" /></circle></svg>
+        </div>
+      </section>
+
+      {/* BLURB + CTA */}
+      <section className="mx-auto max-w-[1100px] px-6 py-28 text-center md:py-36 md:px-10">
+        <div className="hairline hairline-before hairline-after mx-auto">
+          <span className="eyebrow text-brass">The Studio</span>
+        </div>
+        <h2 className="mx-auto mt-8 max-w-3xl font-display text-[2rem] leading-[1.15] text-forest md:text-[3rem]">
+          Quiet, uncompromising craftsmanship — from first sketch to final hand-polish.
+        </h2>
+        <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground">
+          London Furniture Studio is a Berkshire-based workshop making bespoke cabinetry, fitted joinery and freestanding furniture for private clients, architects and interior designers. We work almost exclusively on projects in Chelsea, Marylebone, Belgravia and the surrounding neighbourhoods — bringing the same standard of care to every commission, whatever its scale.
+        </p>
+        <div className="mt-12">
+          <Link to="/who-we-are" className="btn-brand btn-brand-hover">Meet the Team</Link>
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <Testimonials />
+
+      {/* FEATURE PHOTO */}
+      <section className="mx-auto max-w-[1400px] px-6 py-24 md:px-10 md:py-32">
+        <figure className="relative overflow-hidden">
+          <img
+            src={featureImg}
+            alt="Bespoke walnut kitchen interior"
+            loading="lazy"
+            width={1600}
+            height={1000}
+            className="h-[520px] w-full object-cover md:h-[680px]"
+          />
+        </figure>
+      </section>
+
+      {/* WHO WE WORK WITH */}
+      <section className="mx-auto max-w-[1400px] px-6 pb-28 md:px-10 md:pb-36">
+        <div className="mb-14 text-center">
+          <div className="hairline hairline-before hairline-after mx-auto">
+            <span className="eyebrow text-brass">Collaborations</span>
+          </div>
+          <h2 className="mt-6 font-display text-[2rem] text-forest md:text-[3rem]">Who We Work With</h2>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-3">
+          {[
+            { img: tileCommercial, title: "Commercial", copy: "Hospitality, retail and workplace joinery delivered to programme." },
+            { img: tileArchitects, title: "Architects & Interior Designers", copy: "A trusted maker for design-led practices across London." },
+            { img: tileResidential, title: "Residential", copy: "Private commissions for the finest London homes." },
+          ].map((t) => (
+            <article key={t.title} className="group relative overflow-hidden">
+              <div className="relative aspect-[3/4] w-full overflow-hidden">
+                <img src={t.img} alt={t.title} loading="lazy" width={1000} height={1200} className="h-full w-full object-cover transition-transform duration-[1400ms] group-hover:scale-[1.06]" />
+                <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(20,42,40,0.15) 0%, rgba(20,42,40,0.85) 100%)" }} />
+                <div className="absolute inset-x-0 bottom-0 p-7">
+                  <h3 className="font-display text-2xl text-ivory">{t.title}</h3>
+                  <div className="mt-2 h-px w-10 bg-brass" />
+                  <p className="mt-3 text-sm leading-relaxed text-ivory/80">{t.copy}</p>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="mt-14 text-center">
+          <Link to="/what-we-do" className="btn-brand btn-brand-hover">How We Work</Link>
+        </div>
+      </section>
+
+      {/* RECENT PROJECTS */}
+      <section style={{ backgroundColor: "var(--color-secondary)" }}>
+        <div className="mx-auto max-w-[1400px] px-6 py-28 md:px-10 md:py-36">
+          <div className="mb-14 flex flex-col items-center text-center">
+            <div className="hairline hairline-before hairline-after">
+              <span className="eyebrow text-brass">Selected Work</span>
+            </div>
+            <h2 className="mt-6 font-display text-[2rem] text-forest md:text-[3rem]">Recent Projects</h2>
+          </div>
+
+          <ProjectCarousel />
+
+          <div className="mt-14 text-center">
+            <Link to="/projects" className="btn-brand btn-brand-hover">See More</Link>
+          </div>
+        </div>
+      </section>
+    </SiteLayout>
   );
 }
