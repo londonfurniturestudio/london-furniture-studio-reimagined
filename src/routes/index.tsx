@@ -75,10 +75,15 @@ function Home() {
         <h2 className="mx-auto mt-8 max-w-3xl font-display text-[2rem] leading-[1.15] text-forest md:text-[3rem]">
           Quiet, uncompromising craftsmanship — from first sketch to final hand-polish.
         </h2>
-        <p className="mx-auto mt-8 max-w-2xl text-base leading-relaxed text-muted-foreground">
-          London Furniture Studio is a Berkshire-based workshop making bespoke cabinetry, fitted joinery and freestanding furniture for private clients, architects and interior designers. We work almost exclusively on projects in Chelsea, Marylebone, Belgravia and the surrounding neighbourhoods — bringing the same standard of care to every commission, whatever its scale.
-        </p>
-        <div className="mt-12">
+        <div className="mx-auto mt-8 max-w-2xl space-y-5 text-base leading-relaxed text-muted-foreground">
+          <p>
+            London Furniture Studio is a bespoke cabinetry and furniture manufacturer specialising in designing and handcrafting all varieties of furniture in the residential and commercial market. With the combined experience of over a decade in Fine Furniture, we can proudly offer a truly beautiful and long-lasting product.
+          </p>
+          <p>
+            We offer all forms of furniture and cabinetry, including Walk-in Closets, Fitted Wardrobes, Dressing Rooms, Bespoke Kitchens, Media Rooms, Living Rooms, Bathrooms and unique Freestanding Pieces. Our range of materials stem from man-made boards like veneered MDF and Melamine to Fine Timber, Brass and Mirror/Glass.
+          </p>
+        </div>
+        <div className="mt-10">
           <Link to="/who-we-are" className="btn-brand btn-brand-hover">Meet the Team</Link>
         </div>
       </section>
