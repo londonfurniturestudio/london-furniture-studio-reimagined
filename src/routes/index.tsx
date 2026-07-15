@@ -68,7 +68,7 @@ function Home() {
       </section>
 
       {/* BLURB + CTA */}
-      <section className="mx-auto max-w-[1100px] px-6 py-28 text-center md:py-36 md:px-10">
+      <section className="mx-auto max-w-[1100px] px-6 pt-28 pb-16 text-center md:pt-36 md:pb-20 md:px-10">
         <div className="hairline hairline-before hairline-after mx-auto">
           <span className="eyebrow text-brass">The Studio</span>
         </div>
