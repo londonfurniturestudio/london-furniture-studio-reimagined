@@ -24,21 +24,15 @@ const items = [
 export function Testimonials() {
   const loop = [...items, ...items];
   return (
-    <section
-      className="overflow-hidden border-y"
-      style={{
-        backgroundColor: "var(--color-forest)",
-        borderColor: "rgba(201,168,128,0.18)",
-      }}
-    >
-      <div className="animate-marquee flex gap-16 py-16 whitespace-nowrap">
+    <section className="overflow-hidden bg-background">
+      <div className="animate-marquee flex items-center gap-14 py-6 whitespace-nowrap">
         {loop.map((t, i) => (
-          <figure key={i} className="flex min-w-[520px] max-w-[560px] flex-col items-start whitespace-normal px-8">
-            <span className="text-brass text-3xl font-display leading-none">&ldquo;</span>
-            <blockquote className="font-display text-[1.35rem] leading-snug text-ivory/95 italic">
+          <figure key={i} className="flex items-center gap-4 whitespace-normal px-4">
+            <span className="font-display text-2xl leading-none text-forest">&ldquo;</span>
+            <blockquote className="font-display text-[1.15rem] leading-snug italic text-forest max-w-[520px]">
               {t.quote}
             </blockquote>
-            <figcaption className="mt-5 text-[0.7rem] uppercase tracking-[0.28em] text-brass">
+            <figcaption className="shrink-0 text-[0.65rem] uppercase tracking-[0.28em] text-forest/70">
               — {t.author}
             </figcaption>
           </figure>
