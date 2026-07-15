@@ -58,7 +58,7 @@ function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1100px] px-6 pt-28 pb-16 text-center md:px-10 md:pt-36 md:pb-20">
+      <section className="mx-auto max-w-[1100px] px-6 py-16 text-center md:px-10 md:py-20">
         <div className="hairline hairline-before hairline-after mx-auto">
           <span className="eyebrow text-brass">The Studio</span>
         </div>
@@ -80,7 +80,7 @@ function Home() {
 
       <Testimonials />
 
-      <section className="mx-auto max-w-[1400px] px-6 pt-28 pb-16 md:px-10 md:pt-36 md:pb-20">
+      <section className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-20">
         <div className="mb-14 text-center">
           <div className="hairline hairline-before hairline-after mx-auto">
             <span className="eyebrow text-brass">Collaborations</span>
