@@ -11,23 +11,29 @@ const contactEnquirySchema = z.object({
 export const submitContactEnquiry = createServerFn({ method: "POST" })
   .inputValidator((data) => contactEnquirySchema.parse(data))
   .handler(async ({ data }) => {
-    const senderDomain = process.env.LOVABLE_EMAIL_DOMAIN;
+    const { sendTemplateEmail } = await import("@/lib/email-templates/send-email");
 
-    if (!senderDomain) {
+    try {
+      const result = await sendTemplateEmail("contact-enquiry", "info@londonfurniturestudio.com", {
+        templateData: {
+          name: data.name,
+          email: data.email,
+          telephone: data.telephone || "",
+          message: data.message,
+        },
+        replyTo: data.email,
+        idempotencyKey: `contact-${data.email}-${Date.now()}`,
+      });
+
+      if (result.sent) {
+        return { ok: true as const, message: "Thank you — your enquiry has been sent. We'll be in touch shortly." };
+      }
+      return { ok: false as const, message: "We couldn't deliver your enquiry right now. Please email info@londonfurniturestudio.com directly." };
+    } catch (error) {
+      console.error("Contact enquiry send failed", error);
       return {
         ok: false as const,
-        message:
-          "Email sending is not active yet. Please set up the sender domain in Lovable Cloud, then I can route enquiries to info@londonfurniturestudio.com.",
+        message: "Something went wrong sending your enquiry. Please try again, or email info@londonfurniturestudio.com directly.",
       };
     }
-
-    return {
-      ok: false as const,
-      message:
-        "The form is now validated server-side and ready for email delivery, but the project still needs the email template/send helper wired after the sender domain is configured.",
-      preview: {
-        to: "info@londonfurniturestudio.com",
-        subject: `New enquiry from ${data.name}`,
-      },
-    };
   });
