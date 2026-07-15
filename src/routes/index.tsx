@@ -63,7 +63,7 @@ function Home() {
           <span className="eyebrow text-brass">The Studio</span>
         </div>
         <h2 className="mx-auto mt-8 max-w-3xl font-display text-[2rem] leading-[1.15] text-forest md:text-[3rem]">
-          Quiet, uncompromising craftsmanship — from first sketch to final hand-polish.
+          Uncompromising craftsmanship, from first sketch to final hand-polish.
         </h2>
         <div className="mx-auto mt-8 max-w-2xl space-y-5 text-base leading-relaxed text-muted-foreground">
           <p>
