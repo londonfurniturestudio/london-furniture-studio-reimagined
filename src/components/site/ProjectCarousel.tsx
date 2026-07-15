@@ -1,12 +1,16 @@
 import { useState } from "react";
-import p1 from "@/assets/project-1.jpg";
-import p2 from "@/assets/project-2.jpg";
-import p3 from "@/assets/project-3.jpg";
+import p1 from "@/assets/proj-library.jpg";
+import p2 from "@/assets/proj-kitchen.jpg";
+import p3 from "@/assets/proj-wardrobe.jpg";
+import p4 from "@/assets/proj-shelving.jpg";
+import p5 from "@/assets/proj-media.jpg";
 
 const slides = [
-  { src: p1, title: "Belgravia Residence", meta: "Media Wall · Walnut & Brass" },
-  { src: p2, title: "Marylebone Dressing Room", meta: "Fitted Wardrobe · Marble Island" },
-  { src: p3, title: "Chelsea Library", meta: "Floor-to-ceiling Joinery" },
+  { src: p1, title: "Walnut Library & Study", meta: "Residential · Library" },
+  { src: p2, title: "Kensington Kitchen", meta: "Residential · Kitchen" },
+  { src: p3, title: "Bespoke Dressing Room", meta: "Residential · Wardrobe" },
+  { src: p4, title: "Illuminated Oak Shelving", meta: "Residential · Living" },
+  { src: p5, title: "Marquetry Media Unit", meta: "Residential · Media" },
 ];
 
 export function ProjectCarousel() {
@@ -16,26 +20,26 @@ export function ProjectCarousel() {
   return (
     <div className="relative">
       <div className="grid gap-6 md:grid-cols-3">
-        {slides.map((s, idx) => (
+        {slides.slice(0, 3).map((s, idx) => (
           <figure
             key={idx}
             className={`group relative overflow-hidden transition-all duration-700 ${
-              idx === i ? "md:col-span-2 md:row-span-2" : ""
+              idx === i % 3 ? "md:col-span-2 md:row-span-2" : ""
             }`}
-            style={{ aspectRatio: idx === i ? "4 / 5" : "3 / 4" }}
+            style={{ aspectRatio: idx === i % 3 ? "4 / 5" : "3 / 4" }}
             onMouseEnter={() => setI(idx)}
           >
             <img
-              src={s.src}
-              alt={s.title}
+              src={slides[(idx + Math.floor(i / 3) * 3) % slides.length].src}
+              alt={slides[(idx + Math.floor(i / 3) * 3) % slides.length].title}
               loading="lazy"
               width={1200}
               height={1500}
               className="h-full w-full object-cover transition-transform duration-[1200ms] group-hover:scale-[1.04]"
             />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-forest-deep/85 via-forest-deep/30 to-transparent p-6 pt-24">
-              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-brass">{s.meta}</p>
-              <h4 className="mt-1 font-display text-xl text-ivory">{s.title}</h4>
+              <p className="text-[0.68rem] uppercase tracking-[0.28em] text-brass">{slides[(idx + Math.floor(i / 3) * 3) % slides.length].meta}</p>
+              <h4 className="mt-1 font-display text-xl text-ivory">{slides[(idx + Math.floor(i / 3) * 3) % slides.length].title}</h4>
             </div>
           </figure>
         ))}

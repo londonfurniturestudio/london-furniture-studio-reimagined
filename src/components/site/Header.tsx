@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import logoMark from "@/assets/logo-mark.png.asset.json";
+import logoMark from "@/assets/logo-mark.png";
 
 const nav = [
   { to: "/", label: "Home" },
@@ -31,18 +31,15 @@ export function Header() {
     >
       <div
         className="mx-auto flex max-w-[1400px] items-center justify-between px-6 md:px-10"
-        style={{ height: scrolled ? "72px" : "92px", transition: "height 400ms ease" }}
+        style={{ height: scrolled ? "96px" : "128px", transition: "height 400ms ease" }}
       >
-        <Link to="/" className="flex items-center gap-3" aria-label="London Furniture Studio home">
+        <Link to="/" className="flex items-center" aria-label="London Furniture Studio home">
           <img
-            src={logoMark.url}
+            src={logoMark}
             alt="London Furniture Studio"
             className="w-auto transition-all duration-500"
-            style={{ height: scrolled ? "48px" : "64px" }}
+            style={{ height: scrolled ? "72px" : "96px" }}
           />
-          <span className="hidden sm:inline text-[0.62rem] uppercase tracking-[0.32em] text-brass">
-            London Furniture Studio
-          </span>
         </Link>
 
         <nav className="hidden items-center gap-9 lg:flex">
